@@ -12,6 +12,7 @@ def get_file_details(file_path, new_title):
 	file_name = os.path.basename(file_path)
 	for i in range(folder.Items().Count):
 		file = folder.Items().Item(i)
+		print(f"Processing: {file}")
 		# Load the metadata of the video file
 		video = EasyMP4(file_path)
 		keys = video.keys()
@@ -47,6 +48,7 @@ def main(folder_path):
 				title = get_file_details(file_path, new_title)
 			else:
 				print("This is not a video file.")
+			print("======================================")
 
 if __name__ == "__main__":
 	folder_path = input("Enter your media folder's path: ")  # Change this to the path of your folder
