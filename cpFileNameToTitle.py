@@ -43,7 +43,10 @@ def main(folder_path):
 		for file in files:
 			file_path = os.path.join(root, file)
 			new_title = file.rstrip(".mp4")
-			title = get_file_details(file_path, new_title)
+			if ".mp4" in file:
+				title = get_file_details(file_path, new_title)
+			else:
+				print("This is not a video file.")
 
 if __name__ == "__main__":
 	folder_path = input("Enter your media folder's path: ")  # Change this to the path of your folder
