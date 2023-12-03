@@ -10,7 +10,10 @@ This script repires the **mutagen** and **pywin32** libraries. Yo ucan install t
 pip install mutagen
 pip install pywin32
 ```
-Once those dependencies are installed, navigate to the parent directory of the script and run it by entering into the command line:
+
+***IMPORTANT:*** Before running the script, ensure every file in your directory **is not** in *read only* mode. Simply navigate to the parent of the directory you want to affect. Right click on your directory and select *Properties*. In the properties window, make sure *Read Only* is **not** checked. If it is, uncheck it and click *ok*. You will be prompted if you would like to make these changes to the file only or to all subfolders and files; select all subfolders and files and click *ok*.
+
+Once those dependencies are installed, and you have ensured all files **are not** in *read only* mode, navigate to the parent directory of the script and run it by entering into the command line:
 ```
 python cpFileNameToTitle.py
 ```
