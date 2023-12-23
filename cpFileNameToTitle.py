@@ -10,8 +10,8 @@ def get_file_details(file_path, new_title):
 	folder = shell.Namespace(os.path.dirname(file_path))
 	# This line extracts the file name from the full file path using os.path.basename.
 	file_name = os.path.basename(file_path)
-	title_was_changed = False
 	for i in range(folder.Items().Count):
+		title_was_changed = False
 		file = folder.Items().Item(i)
 		# Load the metadata of the video file
 		video = EasyMP4(file_path)
