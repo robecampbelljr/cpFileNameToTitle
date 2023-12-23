@@ -26,7 +26,7 @@ def get_file_details(file_path, new_title):
 		title = video['title']
 		if title != new_title:
 			# Change the title
-			video['title'] = new_title
+			video['title'][0] = new_title
 			# Save the changes
 			video.save()
 			title_was_changed = True
