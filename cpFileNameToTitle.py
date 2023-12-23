@@ -23,9 +23,8 @@ def get_file_details(file_path, new_title):
 			new_metadata['title'] = 'Temp Title'
 			# Update the existing metadata with the new dictionary
 			video.update(new_metadata)
-		title = video['title']
+		title = video['title'][0]
 		if title != new_title:
-			print(f"{video['title']} != {new_title}")
 			# Change the title
 			video['title'] = new_title
 			# Save the changes
