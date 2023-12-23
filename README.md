@@ -22,5 +22,3 @@ You will be prompted for the URL of the folder containing the video file(s) you 
 Enter your media folders path: C:\Your\Video\Folder
 ```
 Once entered, the script will crawl through the folder and all subfolders and change the title in the metadata from whatever it is to its file name. If the title attribute is missing from the file, this will add the attribute with the value of "1" and then change it to the desired value.
-
-**NOTE:** If there are any other types of files in the directory or any of the subdirectories, the script will terminate. This will be fixed with future iterations.
