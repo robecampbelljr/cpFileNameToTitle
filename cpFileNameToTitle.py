@@ -2,6 +2,8 @@ import os
 import win32com.client
 from mutagen.easymp4 import EasyMP4
 
+log = []
+
 	# This line starts the definition of a function named get_file_details that takes a parameter file_path.
 def get_file_details(file_path, new_title):
 	# Here, we create an instance of the Windows Shell Application using win32com.client.Dispatch. This allows us to interact with the Windows Shell.
@@ -22,22 +24,39 @@ def get_file_details(file_path, new_title):
 			video.update(new_metadata)
 		title = video['title'][0]
 		if title != new_title:
+			log.append(f"{title} -> {new_title}")
 			# Change the title
 			video['title'] = new_title
 			# Save the changes
 			video.save()
 			title_was_changed = True
 		return title_was_changed
+	
+def print_log():
+	split_number = 10
+	print("*" * split_number + "START LOG" + "*" * split_number)
+	for i in log:
+		print(f"{i}")
+	print("*" * split_number + "END LOG" + "*" * split_number)
+	end_menu()
 
 def end_menu():
-	menu = input("Enter 'log' to see a list of titles changed.\nEnter 'q' to quit\n")
+	quit = False
+	menu = input("")
 	if menu == 'log':
-		print("Log in development")
-		end_menu()
+		if len(log) < 1:
+			print("No files were changed.")
+		else:
+			print_log()
 	elif menu == 'q':
 		print("Thank you for using my utility today.")
+		quit = True
+	elif menu == 'h':
+		print("Enter 'log' to see a list of titles changed.\nEnter 'q' to quit\nEnter 'h' for help")
 	else:
 		print("Incorrect option.")
+
+	if quit == False:
 		end_menu()
 
 def main(folder_path):
@@ -55,10 +74,8 @@ def main(folder_path):
 					changed_files += 1
 			total_files += 1
 	print(f"Total Files Processed: {total_files}\nMp4 Files Found: {mp4_files}\nTitles Changed: {changed_files}")
+	print("Enter 'log' to see a list of titles changed.\nEnter 'q' to quit\nEnter 'h' for help")
 	end_menu()
-
-
-
 
 if __name__ == "__main__":
 	folder_path = input("Enter your media folder's path: ")
