@@ -8,11 +8,8 @@ def get_file_details(file_path, new_title):
 	shell = win32com.client.Dispatch("Shell.Application")
 	# We obtain a reference to the folder containing the file using shell.Namespace. os.path.dirname(file_path) extracts the directory path from the full file path.
 	folder = shell.Namespace(os.path.dirname(file_path))
-	# This line extracts the file name from the full file path using os.path.basename.
-	file_name = os.path.basename(file_path)
 	for i in range(folder.Items().Count):
 		title_was_changed = False
-		file = folder.Items().Item(i)
 		# Load the metadata of the video file
 		video = EasyMP4(file_path)
 		keys = video.keys()
@@ -32,6 +29,17 @@ def get_file_details(file_path, new_title):
 			title_was_changed = True
 		return title_was_changed
 
+def end_menu():
+	menu = input("Enter 'log' to see a list of titles changed.\nEnter 'q' to quit\n")
+	if menu == 'log':
+		print("Log in development")
+		end_menu()
+	elif menu == 'q':
+		print("Thank you for using my utility today.")
+	else:
+		print("Incorrect option.")
+		end_menu()
+
 def main(folder_path):
 	total_files = 0
 	mp4_files = 0
@@ -47,6 +55,10 @@ def main(folder_path):
 					changed_files += 1
 			total_files += 1
 	print(f"Total Files Processed: {total_files}\nMp4 Files Found: {mp4_files}\nTitles Changed: {changed_files}")
+	end_menu()
+
+
+
 
 if __name__ == "__main__":
 	folder_path = input("Enter your media folder's path: ")
