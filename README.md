@@ -16,6 +16,6 @@ python cpFileNameToTitle.py
 ```
 You will be prompted for the URL of the folder containing the video file(s) you want to change:
 ```
-Enter your media folders path: C:\Your\Video\Folder
+Enter your media folders path: C:\Your\Video\ParentFolder
 ```
 Once entered, the script will crawl through the folder and all subfolders and change the title in the metadata from whatever it is to its file name. If the title attribute is missing from the file, this will add the attribute with the value of "1" and then change it to the desired value.
