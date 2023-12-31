@@ -1,5 +1,5 @@
 # cpFileNameToTitle
-This is a python script is intended for Windows systems. This script will copy the file name of a video file and apply it to the title in the meta data.
+This is a python script is intended for Windows systems. This script will crawl through the directory provided and all ist subdirectories, copy the file name of a video file, and apply it to the title in the meta data.
 
 # Purpose
 My family backs up all our dvds on a windows machine and we use that drive to stream all those videos to our smart devices in the house. One exception is our main tv room where there is an apple tv. I could run iTunes on the windows machine and share the backup drive with the apple tv. This would eliminate the rest of the family having to ask us to put movies on for them. There was one problem: iTunes displays the title of the file from the metadata and not the file name. This script was created to automate the task of copying the file name of each video file and pasting it into the 'title' metadata of the file.
