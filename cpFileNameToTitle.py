@@ -33,17 +33,17 @@ def get_file_details(file_path, new_title):
 		return title_was_changed
 	
 def print_log():
-	split_number = 10
-	print("*" * split_number + "START LOG" + "*" * split_number)
+	split_number = 15
+	print("*" * split_number + "START LOG" + "*" * split_number + "\n")
 	for i in log:
 		print(f"{i}")
-	print("*" * split_number + "END LOG" + "*" * split_number)
+	print("\n" + "*" * split_number + "END LOG" + "*" * split_number)
 	end_menu()
 
 def end_menu():
 	quit = False
 	menu = input("")
-	if menu == 'log':
+	if menu == 'l':
 		if len(log) < 1:
 			print("No files were changed.")
 		else:
@@ -58,6 +58,8 @@ def end_menu():
 
 	if quit == False:
 		end_menu()
+	else:
+		return 0
 
 def main(folder_path):
 	total_files = 0
@@ -74,7 +76,7 @@ def main(folder_path):
 					changed_files += 1
 			total_files += 1
 	print(f"Total Files Processed: {total_files}\nMp4 Files Found: {mp4_files}\nTitles Changed: {changed_files}")
-	print("Enter 'log' to see a list of titles changed.\nEnter 'q' to quit\nEnter 'h' for help")
+	print("Enter 'l' to see a list of titles changed.\nEnter 'h' for help\nEnter 'q' to quit")
 	end_menu()
 
 if __name__ == "__main__":
